@@ -1,7 +1,6 @@
 package com.czh.xc.CreateThreadType;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * 线程池来创建线程
@@ -18,5 +17,7 @@ public class ThreadPool implements Runnable{
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(new ThreadPool());
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1, 0L, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>());
     }
 }
