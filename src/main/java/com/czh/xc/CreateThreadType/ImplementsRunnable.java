@@ -1,10 +1,9 @@
 package com.czh.xc.CreateThreadType;
 
 /**
- * 实现Runnable
  * Author:CZH
  * Date:2024-05-23
- * Description:TODO
+ * Description:实现Runnable
  */
 public class ImplementsRunnable implements Runnable{
 

@@ -1,10 +1,9 @@
 package com.czh.xc.CreateThreadType;
 
 /**
- * 继承Thread
  * Author:CZH
  * Date:2024-05-23
- * Description:TODO
+ * Description:继承Thread
  */
 public class ExtendThread extends Thread{
     @Override

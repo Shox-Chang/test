@@ -3,10 +3,9 @@ package com.czh.xc.CreateThreadType;
 import java.util.concurrent.*;
 
 /**
- * 线程池来创建线程
  * Author:CZH
  * Date:2024-05-23
- * Description:TODO
+ * Description:线程池来创建线程
  */
 public class ThreadPool implements Runnable{
     @Override

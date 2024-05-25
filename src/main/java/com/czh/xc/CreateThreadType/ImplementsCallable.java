@@ -5,10 +5,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 /**
- * 实现Callable
  * Author:CZH
  * Date:2024-05-23
- * Description:TODO
+ * Description:实现Callable
  */
 public class ImplementsCallable implements Callable<String> {
     @Override
