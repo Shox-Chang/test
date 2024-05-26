@@ -1,5 +1,7 @@
 package com.czh.xc.CreateThreadType;
 
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
 import java.util.concurrent.*;
 
 /**
@@ -17,6 +19,12 @@ public class ThreadPool implements Runnable{
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         executorService.execute(new ThreadPool());
 
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1, 0L, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>());
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setCorePoolSize(10);
+        executor.setMaxPoolSize(10);
+        executor.setQueueCapacity(200);
+        executor.setThreadNamePrefix("czh--");
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        executor.initialize();
     }
 }
