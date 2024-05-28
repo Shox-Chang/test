@@ -16,7 +16,9 @@ public class ThreadPool implements Runnable{
     }
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        ExecutorService executorService = new ThreadPoolExecutor(1,1,
+                0L,TimeUnit.SECONDS,new LinkedBlockingQueue<>(1),
+                new ThreadPoolExecutor.CallerRunsPolicy());
         executorService.execute(new ThreadPool());
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
