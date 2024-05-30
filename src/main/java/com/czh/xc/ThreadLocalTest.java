@@ -14,7 +14,7 @@ public class ThreadLocalTest {
 
     private static ThreadLocal<HashMap<String,?>> threadLocal = new ThreadLocal<>();
 
-    private static HashMap<String, String> hashMap = new HashMap<>();
+    private static volatile HashMap<String, String> hashMap = new HashMap<>();
 
     static void funA(){
         hashMap.put("1", "2");
