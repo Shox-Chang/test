@@ -22,6 +22,7 @@ public class ThreadPool implements Runnable{
         executorService.execute(new ThreadPool());
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        executor.setRejectedExecutionHandler( new ThreadPoolExecutor.AbortPolicy());
         executor.setCorePoolSize(10);
         executor.setMaxPoolSize(10);
         executor.setQueueCapacity(200);
