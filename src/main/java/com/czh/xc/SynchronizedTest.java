@@ -22,7 +22,7 @@ public class SynchronizedTest {
 
 class Data{
     public void func(){
-        synchronized (this){
+        synchronized (Data.class){
             System.out.println("Start...");
             try {
                 Thread.sleep(1000);

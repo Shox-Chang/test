@@ -25,6 +25,7 @@ public class ThreadPool implements Runnable{
         executor.setCorePoolSize(10);
         executor.setMaxPoolSize(10);
         executor.setQueueCapacity(200);
+        executor.setKeepAliveSeconds(20);
         executor.setThreadNamePrefix("czh--");
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         executor.initialize();
