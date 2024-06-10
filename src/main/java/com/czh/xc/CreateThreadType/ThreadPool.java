@@ -20,6 +20,7 @@ public class ThreadPool implements Runnable{
         ExecutorService executorService = new ThreadPoolExecutor(1,1,
                 0L,TimeUnit.SECONDS,new LinkedBlockingQueue<>(1),
                 new ThreadPoolExecutor.CallerRunsPolicy());
+        // 无返回值使用execute，有返回值使用submit
         executorService.execute(new ThreadPool());
         /**
          * 如何优雅的停止线程池
