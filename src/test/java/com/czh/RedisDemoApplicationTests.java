@@ -1,10 +1,14 @@
 package com.czh;
 
+import com.czh.xc.AllResolvedExecutor;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -44,24 +48,13 @@ class RedisDemoApplicationTests {
         producer.close();
     }
 
+    @Qualifier(AllResolvedExecutor.mainExecutorName)
+    @Autowired
+    ThreadPoolTaskExecutor executor;
+
     @Test
     void testExecutor(){
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        Future<Boolean> future = executorService.submit(() -> {
-            Thread.sleep(5000);
-            System.out.println("111");
-            return true;
-        });
-        System.out.println("还没有开始执行");
-//        try {
-//            future.get(2, TimeUnit.SECONDS);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (TimeoutException e) {
-//            e.printStackTrace();
-//        }
+//        executor.execute();
     }
 
 }
