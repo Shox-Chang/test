@@ -1,5 +1,6 @@
 package com.czh;
 
+import cn.hutool.core.thread.NamedThreadFactory;
 import com.czh.xc.AllResolvedExecutor;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -71,6 +72,9 @@ class RedisDemoApplicationTests {
 //        } catch (TimeoutException e) {
 //            e.printStackTrace();
 //        }
+
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L,
+                TimeUnit.SECONDS, new LinkedBlockingQueue<>(200), new NamedThreadFactory("1111",false));
     }
 
 }
