@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -75,6 +76,26 @@ class RedisDemoApplicationTests {
 
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L,
                 TimeUnit.SECONDS, new LinkedBlockingQueue<>(200), new NamedThreadFactory("1111",false));
+    }
+
+    @Autowired
+    @Qualifier("redisTemplate")
+    private RedisTemplate redisTemplate;
+
+    @Test
+    public void redisTest(){
+        redisTemplate.opsForValue().setIfAbsent("czh","mm");
+        String x = (String) redisTemplate.opsForValue().get("czh");
+        System.out.println(x);
+
+//        redisTemplate.opsForZSet().add("user", "czh", 10);
+//        redisTemplate.opsForZSet().add("user", "mm", 5);
+//        redisTemplate.opsForZSet().add("user", "dusk", 3);
+//        redisTemplate.opsForZSet().add("user", "blank", 1);
+        Set userSet = redisTemplate.opsForZSet().reverseRangeByScoreWithScores("user", 1, 5, 2, 2);
+        userSet.stream().forEach((Object user) -> {
+            System.out.println(user.toString());
+        });
     }
 
 }
