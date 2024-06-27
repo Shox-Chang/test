@@ -15,22 +15,51 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootTest
 class RedisDemoApplicationTests {
 
     @Test
     void testCollection() {
-        Queue<String> queue = new LinkedList<>();
-        queue.add("1");
-        Collection collection = new ArrayList();
-        collection.add("iii");
-        Iterator iterator = collection.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
-        System.out.println(Integer.MAX_VALUE);
+//        Queue<String> queue = new LinkedList<>();
+//        queue.add("1");
+//        Collection collection = new ArrayList();
+//        collection.add("iii");
+//        Iterator iterator = collection.iterator();
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next());
+//        }
+//        System.out.println(Integer.MAX_VALUE);
+//
+//        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+//        concurrentHashMap.put("1", "2");
+//        concurrentHashMap.entrySet().stream().forEach((Map.Entry<String, String> entry) -> {
+//            String key = entry.getKey();
+//            String value = entry.getValue();
+//            System.out.println(key+value);
+//        });
+
+//        ArrayList<String> array = new ArrayList<String>();
+//
+//        // 创建并添加元素
+//        array.add("hello");
+//        array.add("world");
+//        array.add("java");
+//        Iterator it = array.iterator();
+//        while (it.hasNext()) {
+//            String s = (String) it.next();
+//            if ("world".equals(s)) {
+//                array.add("javaee");
+//            }
+//        }
+
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+        atomicInteger.incrementAndGet();
+        System.out.println(atomicInteger.get());
+
     }
+
 
     @Test
     void kafkaProducer(){
