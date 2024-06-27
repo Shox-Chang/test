@@ -74,8 +74,12 @@ class RedisDemoApplicationTests {
 //            e.printStackTrace();
 //        }
 
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L,
-                TimeUnit.SECONDS, new LinkedBlockingQueue<>(200), new NamedThreadFactory("1111",false));
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 0L,
+//                TimeUnit.SECONDS, new LinkedBlockingQueue<>(200), new NamedThreadFactory("1111",false));
+        HashMap<String, String> stringStringHashMap = new HashMap<>();
+        stringStringHashMap.put("1","a");
+        stringStringHashMap.put("2","b");
+        System.out.println(stringStringHashMap.toString());
     }
 
     @Autowired
@@ -96,6 +100,7 @@ class RedisDemoApplicationTests {
         userSet.stream().forEach((Object user) -> {
             System.out.println(user.toString());
         });
+        new Thread().start();
     }
 
 }
