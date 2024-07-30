@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>test-thread</module>
+        <module>test-spring</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
