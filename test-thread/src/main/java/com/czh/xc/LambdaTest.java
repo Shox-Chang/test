@@ -4,7 +4,6 @@ import com.czh.xc.CreateThreadType.ImplementsCallable;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.*;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Author:CZH
@@ -51,7 +50,7 @@ public class LambdaTest {
         weapon = (String name) -> {
             System.out.println(name);
         };
-        weapon.shot("czh");
+        weapon.shot("com/czh");
 
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         threadPoolTaskExecutor.setCorePoolSize(10);
