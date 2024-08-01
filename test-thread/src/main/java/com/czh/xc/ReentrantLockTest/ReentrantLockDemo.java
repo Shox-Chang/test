@@ -1,4 +1,4 @@
-package com.czh.xc;
+package com.czh.xc.ReentrantLockTest;
 
 import java.util.concurrent.locks.ReentrantLock;
 
